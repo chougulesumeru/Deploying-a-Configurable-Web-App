@@ -1,0 +1,15 @@
+# create nodeport service fiel
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeport-service
+  namespace: web-app
+spec:
+  selector:
+    app: web-app
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 3001 #optional fixed port 3001 on nodes
+  type: NodePort
