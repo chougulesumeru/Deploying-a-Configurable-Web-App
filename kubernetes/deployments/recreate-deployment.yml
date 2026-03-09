@@ -1,0 +1,31 @@
+# comfigure recreate deployment
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: recreate-deployment
+  namespace: web-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web-app
+  template:
+    metadata:
+      name: recreate-deployment
+      labels:
+        app: web-app
+    spec:
+      containers:
+        - name: web-app-container
+          image: web-app:latest
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/config
+      volumes:
+        - name: config-volume
+          configMap:
+            - name: webapp-deployment
+  strategy:
+    type: Recreate # all pods are stop, then new start
