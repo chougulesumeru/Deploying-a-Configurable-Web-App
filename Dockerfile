@@ -13,3 +13,6 @@ RUN mkdir -p /etc/config   #for configmap mounts
 EXPOSE 3000
 
 CMD ["node","app.js"] 
+
+
+#buid and push to docker registry (e.g. docker hub)
