@@ -1,0 +1,5 @@
+# create a namespace
+apiVersion: apps/v1
+kind: Namespace
+metadata:
+  name: web-app

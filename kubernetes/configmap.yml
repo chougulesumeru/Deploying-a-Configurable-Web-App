@@ -1,0 +1,13 @@
+# create a config map file
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: webapp-deployment
+  namespace: web-app
+data:
+  message.txt: "hello ! tejya" #key is file name , value is content
+  version.txt: "v1.0"
+  port.txt: "3000"
+
+
+#kubectl apply -f configmap.yml
